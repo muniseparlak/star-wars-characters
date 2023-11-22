@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background: linear-gradient(90deg,  #09081B, #6696B9, #6E3990);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+
+.btnStar .btn{
+    background-color: #38E54D;
+    
+}
+
+
+.btnStar .btn:hover{
+    background-color:#3EC70B;
+}
+
+.btnStar .btn:active{
+    background-color:#1c5507;
+}
+
+.starWars{
+    background-color: lightgray;
+     
+}
+
+.card{
+    box-shadow: 1px 1px 5px #3e1647;
+}
+
+img{
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+}
+
+
+span{
+
+    background-color: lightgoldenrodyellow;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: animate 5s ease-in infinite;
+}
+
+span::before{
+    position: absolute;
+    content: '';
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    height: 1px;
+    box-shadow: 2px 4px 4px #171647;
+    background: linear-gradient(90deg, lightgoldenrodyellow, #3e1647);
+    
+}
+
+span:nth-child(1){
+    top:0;
+    right:200px;
+    left: initial;
+    animation-delay: 0 ;
+    animation-duration: 1s;
+}
+span:nth-child(2){
+    top:0;
+    right: calc(100% - 100px);
+    left: initial;
+    animation-delay: 0.3 ;
+    animation-duration: 1.2s;
+}
+span:nth-child(3){
+    top:0;
+    right: 0;
+    left: initial;
+    animation-delay: 0.4 ;
+    animation-duration: 2s;
+}
+
+span:nth-child(4){
+    top:0;
+    right: 130px;
+    left: initial;
+    animation-delay: 0.5 ;
+    animation-duration: 2.2s;
+}
+
+span:nth-child(5){
+    top:0;
+    right: calc(100% - 170px);
+    left: initial;
+    animation-delay: 0.8 ;
+    animation-duration: 3s;
+}
+
+
+
+@keyframes animate {
+    0%{
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        transform: rotate(315deg) translateX(-1000px);
+        opacity: 0;
+    }
+
+}
+
+@media screen and (max-width:552px) {
+    body{
+        background: linear-gradient(90deg,  #09081B, #6696B9, #6E3990);
+    }
+    span{
+        display: none;
+    }
+}
