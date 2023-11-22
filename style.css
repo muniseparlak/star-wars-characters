@@ -50,8 +50,8 @@ img{
 span{
 
     background-color: lightgoldenrodyellow;
-    width: 7px;
-    height: 7px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -73,14 +73,14 @@ span::before{
 
 span:nth-child(1){
     top:0;
-    right:200px;
+    right:400px;
     left: initial;
     animation-delay: 0 ;
     animation-duration: 1s;
 }
 span:nth-child(2){
     top:0;
-    right: calc(100% - 100px);
+    right: calc(60% - 10px);
     left: initial;
     animation-delay: 0.3 ;
     animation-duration: 1.2s;
