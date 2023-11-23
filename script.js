@@ -143,7 +143,7 @@ btnShow.addEventListener("click", function cardShow() {
       </div>
       `;
     }
-    
+    row.style.display = 'flex'  // filtreleme yapıldıktan sonra butona tekrar click olursa row görünmesi için
     btnShow.style.background = "#CD1818";   
     btnShow.textContent = "Karakterleri Gizle";
     isActive = false;   
@@ -218,12 +218,10 @@ let filteredHomeworld = document.addEventListener('input',(e)=>{
          
        });
        console.log(filteredCharacters); 
-       
-
-       
-
-       for (let k = 1; k < filteredCharacters.length; k++) {  
+ 
+       for (let k = 0; k < filteredCharacters.length; k++) {  
         row.style.display = 'none'
+       
         filteredRow.innerHTML += ` 
         <div class="col-md-6 col-lg-4 p-4">
         <div class="card">
@@ -236,7 +234,6 @@ let filteredHomeworld = document.addEventListener('input',(e)=>{
         </div>
         `;
       }
-       
       }
       
     })
