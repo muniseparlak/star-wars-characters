@@ -146,7 +146,7 @@ btnShow.addEventListener("click", function cardShow() {
     row.style.display = 'flex'  // filtreleme yapıldıktan sonra butona tekrar click olursa row görünmesi için
     btnShow.style.background = "#CD1818";   
     btnShow.textContent = "Karakterleri Gizle";
-    isActive = false;   
+    isActive = !isActive;   
     inputRadioShow(); // radio inputlar için fonksiyon
   } else {   // butona tıklayınca card ları ekrandan kaldırmak için
     let card = document.querySelectorAll(".col-md-6");   
@@ -160,7 +160,7 @@ btnShow.addEventListener("click", function cardShow() {
 
     btnShow.style.background = "#38E54D";
     btnShow.textContent = "Karakterleri Göster";
-    isActive = true;
+    isActive = !isActive;
     
     
   }
@@ -208,17 +208,17 @@ function inputRadioShow(){
 let chooseRadio;
 // seçili radio için fonksiyon ve onu js ye aktarma
 let filteredHomeworld = document.addEventListener('input',(e)=>{
-  if(e.target.getAttribute('name')=="homeworld")   
+  e.target.getAttribute('name')=="homeworld";
   chooseRadio = e.target.value;   // name i homeworld olan seçtiğimiz karakteri getirdik ve değişkene atadık
   console.log(chooseRadio);
   
-  if (filteredHomeworld !== null) {    // seçilen radio var ise
+  if (chooseRadio !== null ) {    // seçilen radio var ise
         let filteredCharacters = characters.filter((character) => {  // tüm karakterleri filtreledik ve 
-         return character.homeworld === chooseRadio;   // seçtiğimiz radio ya eşit olanları console a yazdırdık
+         return character.homeworld && character.homeworld.toLowerCase() === chooseRadio;   // seçtiğimiz radio ya eşit olanları console a yazdırdık
          
        });
        console.log(filteredCharacters); 
- 
+       filteredRow.innerHTML = ''   // eğer filtrelenmiş cardlar varsa döngüye girmeden onu temizliyoruz
        for (let k = 0; k < filteredCharacters.length; k++) {  
         row.style.display = 'none'
        
