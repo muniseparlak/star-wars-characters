@@ -105,7 +105,7 @@ const characters = [
   {
     id: 18,
     name: "Wedge Antilles",
-    pic: "https://vignette.wikia.nocookie.net/starwars/images/6/60/WedgeHelmetless-ROTJHD.png",
+    pic: "assets/img/Wedge_Antilles-Denis_Lawson-Star_Wars_(1977).jpg",
     homeworld: "corellia",
   },
   {
@@ -118,6 +118,7 @@ const characters = [
     id: 20,
     name: "Yoda",
     pic: "https://vignette.wikia.nocookie.net/starwars/images/d/d6/Yoda_SWSB.png",
+    homeworld: "other",
   },
   {
     id: 21,
@@ -137,7 +138,7 @@ btnShow.addEventListener("click", function cardShow() {
         <img src="${characters[index].pic}" class="card-img-top " alt="character">
         <div class="card-body text-center">
           <h3 class="card-name">${characters[index].name}</h3>
-          <h5 class="homeworld">${characters[index].homeworld}</h5>
+          <h5 class="homeworld">${characters[index].homeworld || 'other'}</h5>
         </div>
       </div>
       </div>
@@ -208,14 +209,13 @@ function inputRadioShow(){
 let chooseRadio;
 // seçili radio için fonksiyon ve onu js ye aktarma
 let filteredHomeworld = document.addEventListener('input',(e)=>{
-  e.target.getAttribute('name')=="homeworld";
   chooseRadio = e.target.value;   // name i homeworld olan seçtiğimiz karakteri getirdik ve değişkene atadık
   console.log(chooseRadio);
   
   if (chooseRadio !== null ) {    // seçilen radio var ise
         let filteredCharacters = characters.filter((character) => {  // tüm karakterleri filtreledik ve 
-         return character.homeworld && character.homeworld.toLowerCase() === chooseRadio;   // seçtiğimiz radio ya eşit olanları console a yazdırdık
-         
+         return character.homeworld && character.homeworld.toLowerCase()  === chooseRadio;   // seçtiğimiz radio ya eşit olanları console a yazdırdık
+        
        });
        console.log(filteredCharacters); 
        filteredRow.innerHTML = ''   // eğer filtrelenmiş cardlar varsa döngüye girmeden onu temizliyoruz
@@ -239,7 +239,7 @@ let filteredHomeworld = document.addEventListener('input',(e)=>{
     })
 
    
-  
+
 
 
 
